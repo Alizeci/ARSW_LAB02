@@ -7,6 +7,7 @@ public class Main {
 	private static int maximo = 30000000;
 	
 	public static void main(String[] args) {
+
 		
 		for (int i = 0; i < nHilos; i++) {
 			inicioNumero = maximo / nHilos * i;
@@ -15,8 +16,8 @@ public class Main {
 			}else {
 				finNumero = (maximo / nHilos * (i + 1)) - 1;
 			}
+			PrimeFinderThread pft=new PrimeFinderThread(inicioNumero, finNumero);
+			pft.start();
 		}
-		PrimeFinderThread pft=new PrimeFinderThread(inicioNumero, finNumero);
-		pft.start();
 	}
 }
